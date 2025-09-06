@@ -81,7 +81,9 @@ export default class PerifitReporter implements Reporter {
             const hms = new Date().toISOString().split('T')[1].split('.')[0].replace(/:/g, '-');
             const filename = `${YMD}_${hms}_${slugify(result.title)}.zip`;
 
-            if 
+            if (!path) {
+                continue;
+            }
 
             console.log(path);
             console.log(filename);
