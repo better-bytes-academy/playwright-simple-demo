@@ -89,7 +89,9 @@ export default class PerifitReporter implements Reporter {
             console.log(filename);
             console.log(process.env.REPORT_PATH);
 
-            fs.cpSync(path, `${process.env.REPORT_PATH || './reports'}/${filename}`);
+            const copyTo =  `${process.env.REPORT_PATH || './reports'}/${filename}`;
+            fs.cpSync(path, copyTo);
+            console.log(`Copy to ${copyTo}`)
             result.reportFileName = filename || '';
         }
 
